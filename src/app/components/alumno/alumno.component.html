@@ -1,0 +1,37 @@
+
+<div class="card mt-5">
+    <div class="card-body">
+
+        <!-- Cuando el evento onSubmit , suceda se va pasar todo el formulario 'productForm' -->
+        <form #alumnoForm="ngForm" (ngSubmit)="onSubmit(alumnoForm)">
+
+            <!-- TO UPDATE -->
+            <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="alumnoService.selectedAlumno.$key">
+
+            <div class="form-group">
+                <input type="text" class="form-control" name="nombre" #name="ngModel"
+                    [(ngModel)]="alumnoService.selectedAlumno.nombre" placeholder="Agragar nombre">
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" name="apellido" #category="ngModel"
+                    [(ngModel)]="alumnoService.selectedAlumno.apellido" placeholder="Agregar Apellido">
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" name="edad" #location="ngModel"
+                    [(ngModel)]="alumnoService.selectedAlumno.edad" placeholder="Agregar Edad">
+            </div>
+            
+           
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-plus-circle"></i> Añadir Alumno
+                </button>
+                <button class="btn btn-secondary" type="reset" (click)="resetForm(alumnoForm)">
+                    <i class="fas fa-sync-alt"></i> Reset
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
